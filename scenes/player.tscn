@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvm5kcwoxokkr"]
+[gd_scene load_steps=18 format=3 uid="uid://c04qsrihrd6u4"]
 
 [ext_resource type="Texture2D" uid="uid://yy4fcsm6tphn" path="res://assets/sprites/postman_idle.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://vgmtm3sqt1xp" path="res://scripts/player.gd" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://6h157fp1fgbu" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dk156eheyxctq" path="res://assets/sprites/postman_jump.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://ramqmdumdn62" path="res://assets/sprites/postman_walk.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://chdcbifdpd03c" path="res://assets/sprites/postman_throw.png" id="5_qlg0r"]
@@ -94,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d2wvv")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
 "speed": 5.0
 }]
@@ -103,15 +103,15 @@ animations = [{
 radius = 12.0416
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_dqkch")
+script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.528963, -15.7456)
+position = Vector2(-1, -13)
 scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"throw"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(-2, -16)
 shape = SubResource("CircleShape2D_3vyb7")
