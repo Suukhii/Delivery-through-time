@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://g7w2o4vqk7dh"]
 
-[ext_resource type="PackedScene" uid="uid://cvm5kcwoxokkr" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://blmeuqljxq7si" path="res://assets/sprites/Map/Egypt/DesertBrick.png" id="2_yqjtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
