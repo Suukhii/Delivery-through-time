@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvm5kcwoxokkr"]
+[gd_scene load_steps=18 format=3 uid="uid://cvm5kcwoxokkr"]
 
 [ext_resource type="Texture2D" uid="uid://yy4fcsm6tphn" path="res://assets/sprites/postman_idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://vgmtm3sqt1xp" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dk156eheyxctq" path="res://assets/sprites/postman_jump.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://ramqmdumdn62" path="res://assets/sprites/postman_walk.png" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://chdcbifdpd03c" path="res://assets/sprites/postman_throw.png" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -32,6 +33,18 @@ region = Rect2(16, 0, 16, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("3_dqkch")
 region = Rect2(32, 0, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(0, 0, 25, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(25, 0, 25, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(50, 0, 25, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
@@ -70,6 +83,20 @@ animations = [{
 "loop": true,
 "name": &"move",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
@@ -79,10 +106,10 @@ radius = 12.0416
 script = ExtResource("1_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -12)
-scale = Vector2(2.87537, 2.15205)
+position = Vector2(0.528963, -15.7456)
+scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"move"
+animation = &"throw"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
