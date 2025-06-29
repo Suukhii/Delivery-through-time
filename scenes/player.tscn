@@ -100,8 +100,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
-radius = 12.0416
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
+size = Vector2(20, 30.2532)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qlg0r")
@@ -111,14 +111,14 @@ projectile_scene = ExtResource("2_tuyoq")
 position = Vector2(-1, -13)
 scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"throw"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 1.0
+frame_progress = 0.0385097
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -16)
-shape = SubResource("CircleShape2D_3vyb7")
+position = Vector2(-1, -24.1)
+scale = Vector2(1, 1.58)
+shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="PlayerProjectileSpawnRight" type="Marker2D" parent="."]
 position = Vector2(20, -18)
