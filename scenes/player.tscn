@@ -111,10 +111,10 @@ projectile_scene = ExtResource("2_tuyoq")
 position = Vector2(-1, -13)
 scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"idle"
+animation = &"throw"
 autoplay = "idle"
 frame = 2
-frame_progress = 0.01267
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -16)

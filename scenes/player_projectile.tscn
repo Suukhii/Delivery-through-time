@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://butky34ygogaj"]
 
-[ext_resource type="Script" uid="uid://kxah1ctilcek" path="res://scripts/player_projectile.gd" id="1_lqp5n"]
+[ext_resource type="Script" path="res://scripts/player_projectile.gd" id="1_lqp5n"]
+[ext_resource type="Texture2D" uid="uid://4cds3c3omx78" path="res://assets/sprites/projectile.png" id="2_oxij3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_at7aw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lqp5n"]
-load_path = "res://.godot/imported/34a1ddcc83c9f16.png-e3be50cf94a8962249bab292eddcf84a.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxij3"]
+size = Vector2(18, 9)
 
 [node name="PlayerProjectile" type="Area2D"]
 script = ExtResource("1_lqp5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_at7aw")
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_oxij3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = SubResource("CompressedTexture2D_lqp5n")
+position = Vector2(49, -3)
+scale = Vector2(1, 1)
+texture = ExtResource("2_oxij3")
