@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
