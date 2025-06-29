@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://butky34ygogaj"]
 
-[ext_resource type="Script" uid="uid://kxah1ctilcek" path="res://scenes/player_projectile.gd" id="1_lqp5n"]
+[ext_resource type="Script" uid="uid://kxah1ctilcek" path="res://scripts/player_projectile.gd" id="1_lqp5n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_at7aw"]
 
@@ -8,5 +8,6 @@
 script = ExtResource("1_lqp5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_at7aw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
