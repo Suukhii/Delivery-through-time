@@ -13,14 +13,14 @@ var facing_direction := 1  # 1 = right, -1 = left
 var is_throwing := false
 
 func _input(event):
-	if event.is_action_pressed("shoot_player_projectile"):
-		shoot_projectile_with_throw()
-
 	if event.is_action_pressed("move_right"):
 		facing_direction = 1
 
 	if event.is_action_pressed("move_left"):
 		facing_direction = -1
+		
+	if event.is_action_pressed("shoot_player_projectile"):
+		shoot_projectile_with_throw()
 
 
 func shoot_projectile_with_throw() -> void:
@@ -46,22 +46,21 @@ func shoot_projectile_with_throw() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Stop movement during throwing
-	if is_throwing:
-		velocity.x = 0
-		move_and_slide()
-		return
-
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Movement
 	var direction := Input.get_axis("move_left", "move_right")
+		
+	# Stop movement during throwing
+	if is_throwing:
+		move_and_slide()
+		return
 
 	# Sprite facing
 	if direction > 0:
