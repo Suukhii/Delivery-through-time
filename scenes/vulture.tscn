@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds2rgq0fer0ip"]
+
+[ext_resource type="Texture2D" uid="uid://2kqjne2esjck" path="res://assets/sprites/Map/Egypt/Vulture.png" id="1_aaqyy"]
+
+[node name="Vulture" type="Sprite2D"]
+texture = ExtResource("1_aaqyy")
