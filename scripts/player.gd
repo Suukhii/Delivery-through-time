@@ -57,10 +57,6 @@ func _physics_process(delta: float) -> void:
 	# Movement
 	var direction := Input.get_axis("move_left", "move_right")
 		
-	# Stop movement during throwing
-	if is_throwing:
-		move_and_slide()
-		return
 
 	# Sprite facing
 	if direction > 0:
@@ -73,7 +69,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	# Stop movement during throwing
+	if is_throwing:
+		move_and_slide()
+		return
+		
 	move_and_slide()
 
 	# Animation logic
