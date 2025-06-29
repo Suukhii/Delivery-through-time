@@ -1,10 +1,23 @@
 extends CharacterBody2D
 
+@export var projectile_scene: PackedScene
+
+@onready var animated_sprite = $AnimatedSprite2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@onready var animated_sprite = $AnimatedSprite2D
+func _input(event):
+	if event.is_action_pressed("shoot_player_projectile"):
+		shoot_projectile()
+
+func shoot_projectile():
+	if projectile_scene:
+		var projectile = projectile_scene.instantiate()
+		
+		projectile.global_position = global_position
+		projectile.direction = Vector2.RIGHT
+		get_tree().current_scene.add_child(projectile)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
