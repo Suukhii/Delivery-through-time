@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://g7w2o4vqk7dh"]
+[gd_scene load_steps=10 format=4 uid="uid://g7w2o4vqk7dh"]
 
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://blmeuqljxq7si" path="res://assets/sprites/Map/Egypt/DesertBrick.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://2kqjne2esjck" path="res://assets/sprites/Map/Egypt/Vulture.png" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bbpr0jc6bmidn" path="res://scenes/enemy.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -22,7 +23,7 @@ distance = -80.0
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(-2, 47)
+position = Vector2(0, 40)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-3, 1)
@@ -46,3 +47,5 @@ shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [node name="enemy" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(309, 142)
+
+[node name="UI" parent="." instance=ExtResource("6_p57ef")]
