@@ -22,6 +22,7 @@ project/assembly_name="Delivery through time"
 [global_group]
 
 Player=""
+Projectile=""
 
 [input]
 
