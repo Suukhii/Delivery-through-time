@@ -2,8 +2,12 @@ extends CharacterBody2D
 
 class_name Vulture
 
-const SPEED = 200.0
+var SPEED = 200.0
 var health = 1
+
+func _ready() -> void:
+	randomize()
+	SPEED += randf_range(0, SPEED/4)
 
 func _physics_process(delta: float) -> void:
 	velocity.x = -SPEED
