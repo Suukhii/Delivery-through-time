@@ -4,7 +4,7 @@ var preloadedEnemy = preload("res://scenes/vulture.tscn")
 
 @onready var spawnTimer = $SpawnTimer
 
-var nextSpawnTime = 0.1
+var nextSpawnTime = 1
 
 var player_node
 
