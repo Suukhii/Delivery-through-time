@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmuvc1kdk3khh"]
+
+[ext_resource type="Texture2D" uid="uid://2kqjne2esjck" path="res://assets/sprites/Map/Egypt/Vulture.png" id="1_aaqyy"]
+[ext_resource type="Script" uid="uid://cqhq1k1qxpej1" path="res://scripts/vulture.gd" id="1_vdhiy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6rmw"]
+radius = 4.0
+height = 26.0
+
+[node name="Vulture" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_vdhiy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aaqyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n6rmw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2, 0.5)
+scale = Vector2(1.4, 0.65)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
