@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
 
+signal hit
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -85,3 +87,17 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("move")
 	else:
 		animated_sprite.play("idle")
+		
+var lives := 3
+
+func on_hit():
+	lives -= 1
+	print("Player hit! Lives left: ", lives)
+	emit_signal("hit", lives)  
+	if lives <= 0:
+		die() 
+		
+func die():
+	print("You died")
+	get_tree().reload_current_scene()
+	
