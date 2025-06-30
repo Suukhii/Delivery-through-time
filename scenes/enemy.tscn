@@ -58,7 +58,7 @@ scale = Vector2(1.63516, 1.70786)
 sprite_frames = SubResource("SpriteFrames_c4w8v")
 autoplay = "default"
 frame = 1
-frame_progress = 0.40279
+frame_progress = 0.174588
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(23, -16)
