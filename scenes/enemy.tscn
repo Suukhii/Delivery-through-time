@@ -1,11 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c35aaff7rc6ou"]
 
-
 [ext_resource type="Script" uid="uid://cphre82dxpelq" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://btfou334tm0io" path="res://assets/sprites/mummy.png" id="2_md0e3"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://dnory7y37uhps" path="res://assets/sprites/test enemy.png" id="1_md0e3"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(23.875, 41.25)
