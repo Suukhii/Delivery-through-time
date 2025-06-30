@@ -46,6 +46,7 @@ animations = [{
 script = ExtResource("1_4ra3w")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(20.0625, -23.375)
@@ -55,6 +56,7 @@ shape = SubResource("RectangleShape2D_md0e3")
 position = Vector2(31, -24)
 scale = Vector2(1.63516, 1.70786)
 sprite_frames = SubResource("SpriteFrames_c4w8v")
+autoplay = "default"
 frame = 1
 frame_progress = 0.40279
 
