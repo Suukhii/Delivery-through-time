@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://blmeuqljxq7si" path="res://assets/sprites/Map/Egypt/DesertBrick.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -16,7 +16,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
-distance = -80.0
+distance = -81.0
 
 [node name="Game" type="Node2D"]
 

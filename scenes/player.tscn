@@ -103,7 +103,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(25, 30.2532)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_qlg0r")
 projectile_scene = ExtResource("2_tuyoq")
 

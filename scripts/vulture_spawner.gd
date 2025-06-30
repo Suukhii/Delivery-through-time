@@ -4,11 +4,14 @@ var preloadedEnemy = preload("res://scenes/vulture.tscn")
 
 @onready var spawnTimer = $SpawnTimer
 
-var nextSpawnTime = 15
+var nextSpawnTime = 0.1
+
+var player_node
 
 # start timer on start
 func _ready():
 	randomize()
+	player_node = get_tree().get_root().get_node("Game/Player/Camera2D")
 	spawnTimer.start(nextSpawnTime)
 
 
@@ -27,3 +30,8 @@ func _on_spawn_timer_timeout():
 	
 	# restart timer
 	spawnTimer.start(nextSpawnTime)
+	
+func _physics_process(delta):
+	# Move spawn position relative to player
+	set_position(player_node.global_position)
+	global_position.x += get_viewport_rect().size.x / 2

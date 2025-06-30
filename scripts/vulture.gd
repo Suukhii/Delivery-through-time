@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Vulture
 
-const SPEED = 100.0
+const SPEED = 200.0
 var health = 1
 
 func _physics_process(delta: float) -> void:
