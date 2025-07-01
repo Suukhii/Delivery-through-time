@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=4 uid="uid://g7w2o4vqk7dh"]
+
+[ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="2_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://blmeuqljxq7si" path="res://assets/sprites/Map/Egypt/DesertBrick.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c35aaff7rc6ou" path="res://scenes/enemy.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("2_yqjtg")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.1873, -15.8276, 16.5688, -15.9315, 16.2502, 15.9315, -15.9315, 16.2502)
+
+[sub_resource type="TileSet" id="TileSet_lbhrr"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+distance = -81.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(0, 40)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-3, 1)
+limit_bottom = 320
+
+[node name="VultureSpawner" type="Node2D" parent="Player"]
+position = Vector2(649, -5)
+script = ExtResource("2_lbhrr")
+
+[node name="SpawnTimer" type="Timer" parent="Player/VultureSpawner"]
+one_shot = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-25, 36)
+tile_map_data = PackedByteArray("AAD7/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD//wEAAAAAAAAAAAABAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD+/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD6/wMAAAAAAAAAAADv/wgAAAAAAAAAAADx/wgAAAAAAAAAAADz/wgAAAAAAAAAAADx/wAAAAAAAAAAAADn/wMAAAAAAAAAAAD4/wwAAAAAAAAAAAD6/wwAAAAAAAAAAAD8/wwAAAAAAAAAAAD+/wwAAAAAAAAAAAAAAAwAAAAAAAAAAAACAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAASAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAcAAQAAAAAAAAAAAAUAAEAAAAAAAAAAAAYAAgAAAAAAAAAAAAZAAgAAAAAAAAAAAAaAAgAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAcAAYAAAAAAAAAAAAeAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAiAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAmAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAqAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAuAAQAAAAAAAAAAAAwAAQAAAAAAAAAAAAyAAQAAAAAAAAAAAA0AAQAAAAAAAAAAAA2AAQAAAAAAAAAAAA4AAQAAAAAAAAAAAA6AAQAAAAAAAAAAAA8AAQAAAAAAAAAAAA+AAQAAAAAAAAAAABAAAQAAAAAAAAAAABCAAQAAAAAAAAAAABEAAQAAAAAAAAAAABGAAQAAAAAAAAAAABIAAQAAAAAAAAAAABKAAQAAAAAAAAAAABMAAQAAAAAAAAAAABOAAQAAAAAAAAAAABQAAQAAAAAAAAAAABSAAQAAAAAAAAAAABUAAQAAAAAAAAAAABWAAQAAAAAAAAAAABYAAQAAAAAAAAAAABaAAQAAAAAAAAAAABcAAQAAAAAAAAAAABeAAQAAAAAAAAAAABgAAQAAAAAAAAAAABiAAQAAAAAAAAAAABkAAQAAAAAAAAAAABmAAQAAAAAAAAAAABoAAQAAAAAAAAAAABqAAQAAAAAAAAAAABsAAQAAAAAAAAAAABuAAQAAAAAAAAAAABwAAQAAAAAAAAAAAByAAQAAAAAAAAAAAB0AAQAAAAAAAAAAAAQAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAYAAAAAAAAAAAAjAPr/AAAAAAAAAAAjAPz/AAAAAAAAAAAlAPz/AAAAAAAAAAAmAPz/AAAAAAAAAAAnAPz/AAAAAAAAAAAoAPz/AAAAAAAAAAApAPz/AAAAAAAAAAAqAPz/AAAAAAAAAAArAPz/AAAAAAAAAAAsAPz/AAAAAAAAAAAtAPz/AAAAAAAAAAAuAPz/AAAAAAAAAAAvAPz/AAAAAAAAAAAwAPz/AAAAAAAAAAAxAPz/AAAAAAAAAAAyAPz/AAAAAAAAAAAzAPz/AAAAAAAAAAA0APz/AAAAAAAAAAA1APz/AAAAAAAAAAA1APv/AAAAAAAAAAA1APr/AAAAAAAAAAA1APn/AAAAAAAAAAAjAPj/AAAAAAAAAAA1APf/AAAAAAAAAAApAPb/AAAAAAAAAAAuAPT/AAAAAAAAAAA0APL/AAAAAAAAAAAdAPz/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lbhrr")
+
+[node name="Deadzone" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(0, 318)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
+position = Vector2(8, -80)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="enemy" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(284, 159)
+
+[node name="UI" parent="." instance=ExtResource("6_p57ef")]
+
+[node name="enemy2" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(554, -33)
+
+[connection signal="timeout" from="Player/VultureSpawner/SpawnTimer" to="Player/VultureSpawner" method="_on_spawn_timer_timeout"]
