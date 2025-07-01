@@ -23,6 +23,7 @@ project/assembly_name="Delivery through time"
 
 Player=""
 Projectile=""
+Enemy=""
 
 [input]
 
