@@ -8,10 +8,9 @@ extends CharacterBody2D
 
 
 signal hit
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var heart_container
 var facing_direction := 1  # 1 = right, -1 = left
 var is_throwing := false
 
@@ -101,3 +100,21 @@ func die():
 	print("You died")
 	get_tree().reload_current_scene()
 	
+func add_life():
+	lives += 1
+	print("Extra life gained! Lives now: ", lives)
+	var heart_container = get_tree().current_scene.get_node("Game/UI/HeartContainer")
+	if heart_container:
+		heart_container.update_hearts(lives)
+	_show_life_increased_message()
+
+func _on_potion_picked_up():
+	add_life()
+
+func _show_life_increased_message():
+	# Show a message for 2 seconds (Assumes you have a Label node at Game/UI/MessageLabel)
+	var message_label = get_tree().current_scene.get_node("Game/UI/MessageLabel")
+	if message_label:
+		message_label.text = "Extra life gained!"
+		message_label.visible = true
+		# Hide after 2 seconds
