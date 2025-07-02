@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d010oawg3n87i"]
 
-[ext_resource type="Script" uid="uid://bigvnphw2ii77" path="res://scripts/speed_boots.gd" id="1_kisqy"]
+[ext_resource type="Script" path="res://scripts/speed_boots.gd" id="1_kisqy"]
 [ext_resource type="Texture2D" uid="uid://dfhtq7qtudd2e" path="res://assets/sprites/speed boots.png" id="1_mi650"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kisqy"]
