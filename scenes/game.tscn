@@ -95,10 +95,4 @@ autoplay = true
 [node name="attack_speed" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(-2521, -2342)
 
-[node name="attack_speed2" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(-80, 18)
-
-[node name="SpeedBoots2" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(88, 12)
-
 [connection signal="timeout" from="Player/VultureSpawner/SpawnTimer" to="Player/VultureSpawner" method="_on_spawn_timer_timeout"]
