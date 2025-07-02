@@ -45,13 +45,6 @@ position = Vector2(0, 40)
 position = Vector2(-3, 1)
 limit_bottom = 320
 
-[node name="inGameUI" parent="Player/Camera2D" instance=ExtResource("11_kvpfn")]
-z_index = 100
-offset_left = 6.0
-offset_top = -128.0
-offset_right = 6.0
-offset_bottom = -128.0
-
 [node name="VultureSpawner" type="Node2D" parent="Player"]
 position = Vector2(649, -5)
 script = ExtResource("2_lbhrr")
@@ -72,6 +65,11 @@ position = Vector2(8, -80)
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [node name="UI" parent="." instance=ExtResource("6_p57ef")]
+
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="inGameUI" parent="Settings" instance=ExtResource("11_kvpfn")]
+z_index = 100
 
 [node name="enemy" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(1286, -794)
