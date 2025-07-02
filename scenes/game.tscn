@@ -99,6 +99,7 @@ position = Vector2(-3179, -2169)
 stream = ExtResource("8_gee14")
 volume_db = 7.495
 autoplay = true
+bus = &"Music"
 
 [node name="attack_speed" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(-2521, -2342)
