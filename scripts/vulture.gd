@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Vulture
 
 var SPEED = 200.0
-var health = 1
+var health = 50
 
 func _ready() -> void:
 	randomize()
@@ -13,8 +13,8 @@ func _physics_process(delta: float) -> void:
 	velocity.x = -SPEED
 	move_and_slide()
 	
-func damage():
-	health -= 1
+func take_damage(amount):
+	health -= amount
 	if health <= 0:
 		queue_free()
 		

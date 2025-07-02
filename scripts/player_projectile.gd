@@ -8,7 +8,6 @@ func _physics_process(delta):
 	position += direction * speed * delta
 
 func _on_body_entered(body: Node) -> void:
-	print("Hit:", body.name)
 	if body.is_in_group("Enemy") and body.has_method("take_damage"):
 		body.take_damage(damage)
 		print("Hit Enemy: ", body.name)
