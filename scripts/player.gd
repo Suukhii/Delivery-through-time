@@ -6,8 +6,18 @@ extends CharacterBody2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
+var fire_rate := 5.0  # shots per second (normal)
+var boosted_fire_rate := 1000.0  # shots per second when boosted
+var is_fire_rate_boosted := false
+var shoot_cooldown := 0.0
+var fire_rate_timer: Timer
+
 var boosted_speed := 1000.0
 var speed_boost_duration := 3.0
+var fire_rate_boost_duration := 10.0
+
+
+
 var is_speed_boosted := false
 var speed_timer: Timer
 
@@ -23,16 +33,33 @@ const FALL_GRAVITY = 1600
 var facing_direction := 1  # 1 = right, -1 = left
 var is_throwing := false
 
+
+func _process(delta):
+	if shoot_cooldown > 0:
+		shoot_cooldown -= delta
+
+
 func _input(event):
 	if event.is_action_pressed("move_right"):
 		facing_direction = 1
-
+		
 	if event.is_action_pressed("move_left"):
 		facing_direction = -1
 		
 	if event.is_action_pressed("shoot_player_projectile"):
-		shoot_projectile_with_throw()
+		shoot_projectile_with_cooldown()
 
+
+
+func shoot_projectile_with_cooldown():
+	if is_throwing or projectile_scene == null:
+		return
+	
+	if shoot_cooldown > 0:
+		return  # still cooling down, can't shoot
+	
+	shoot_cooldown = 1.0 / (boosted_fire_rate if is_fire_rate_boosted else fire_rate)
+	shoot_projectile_with_throw()
 
 func shoot_projectile_with_throw() -> void:
 	if is_throwing or projectile_scene == null:
@@ -129,6 +156,12 @@ func _ready():
 	speed_timer.connect("timeout", Callable(self, "_on_speed_boost_timeout"))
 	add_child(speed_timer)
 
+	fire_rate_timer = Timer.new()
+	fire_rate_timer.one_shot = true
+	fire_rate_timer.wait_time = fire_rate_boost_duration
+	fire_rate_timer.connect("timeout", Callable(self, "_on_fire_rate_boost_timeout"))
+	add_child(fire_rate_timer)
+
 	
 func activate_speed_boost():
 	if is_speed_boosted:
@@ -140,3 +173,15 @@ func activate_speed_boost():
 func _on_speed_boost_timeout():
 	is_speed_boosted = false
 	print("Speed boost ended.")
+	
+	
+func activate_fire_rate_boost():
+	if is_fire_rate_boosted:
+		fire_rate_timer.stop()
+	is_fire_rate_boosted = true
+	fire_rate_timer.start()
+	print("Fire rate boost activated!")
+
+func _on_fire_rate_boost_timeout():
+	is_fire_rate_boosted = false
+	print("Fire rate boost ended.")
