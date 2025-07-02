@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://djyv26jtdj5pk"]
+
+[ext_resource type="Script" uid="uid://d1mnqqus8t1gw" path="res://scripts/attack_speed.gd" id="1_7ls82"]
+[ext_resource type="Texture2D" uid="uid://cx1cea5v5ik30" path="res://assets/sprites/atackspeeedup.png" id="1_afybe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ls82"]
+size = Vector2(18, 10.5)
+
+[node name="attack_speed" type="Area2D"]
+script = ExtResource("1_7ls82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5.75)
+shape = SubResource("RectangleShape2D_7ls82")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, -6)
+texture = ExtResource("1_afybe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
