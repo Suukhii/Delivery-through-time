@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://g7w2o4vqk7dh"]
+[gd_scene load_steps=13 format=4 uid="uid://g7w2o4vqk7dh"]
 
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="2_lbhrr"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c35aaff7rc6ou" path="res://scenes/enemy.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://bu8griog4pfy2" path="res://assets/music/desert jingle.mp3" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -72,5 +73,13 @@ position = Vector2(806, -795)
 
 [node name="enemy3" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(1019, -795)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_gee14")
+volume_db = 12.18
+autoplay = true
+
+[node name="enemy4" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(173, 39)
 
 [connection signal="timeout" from="Player/VultureSpawner/SpawnTimer" to="Player/VultureSpawner" method="_on_spawn_timer_timeout"]
