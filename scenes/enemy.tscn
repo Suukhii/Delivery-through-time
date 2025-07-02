@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btfou334tm0io" path="res://assets/sprites/mummy.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(34, 41.25)
+size = Vector2(23.875, 41.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -52,7 +52,7 @@ script = ExtResource("1_4ra3w")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(22, -23.375)
+position = Vector2(21.0625, -23.375)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
