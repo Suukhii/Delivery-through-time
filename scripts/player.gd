@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
-var fire_rate := 5.0  # shots per second (normal)
-var boosted_fire_rate := 1000.0  # shots per second when boosted
+var fire_rate := 1.0  # shots per second (normal)
+var boosted_fire_rate := 10.0  # shots per second when boosted
 var is_fire_rate_boosted := false
 var shoot_cooldown := 0.0
 var fire_rate_timer: Timer

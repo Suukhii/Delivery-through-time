@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d010oawg3n87i" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://djyv26jtdj5pk" path="res://scenes/attack_speed.tscn" id="8_gee14"]
-=======
+
 [ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 
