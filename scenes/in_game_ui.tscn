@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4y3pqabsua18"]
+[gd_scene load_steps=18 format=3 uid="uid://4y3pqabsua18"]
 
 [ext_resource type="Script" uid="uid://dgamt108hra1" path="res://scripts/popup_menu.gd" id="1_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://c8sxo1lcutbjj" path="res://assets/sprites/Options/options.png" id="1_kplmn"]
@@ -27,6 +27,15 @@ texture = ExtResource("2_a45jx")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qwj3"]
 texture = ExtResource("3_fqvwy")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huati"]
+texture = ExtResource("2_fqvwy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjjyl"]
+texture = ExtResource("2_a45jx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve7rr"]
+texture = ExtResource("3_fqvwy")
+
 [node name="inGameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -35,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="popupMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "open_options_screen")]
+[node name="popupMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "options_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +54,7 @@ grow_vertical = 2
 script = ExtResource("1_6qwj3")
 menu_screen = NodePath("Settings")
 open_menu_screen = NodePath("SettingsOpener")
-open_options_screen = NodePath("Options")
+options_screen = NodePath("Options")
 
 [node name="SettingsOpener" type="MarginContainer" parent="popupMenu"]
 custom_minimum_size = Vector2(100, 100)
@@ -184,6 +193,7 @@ theme_override_font_sizes/font_size = 40
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="popupMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -193,29 +203,70 @@ custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 texture = ExtResource("1_kplmn")
 
-[node name="Options" type="HBoxContainer" parent="popupMenu/Options/NinePatchRect"]
+[node name="Resolution" type="Label" parent="popupMenu/Options/NinePatchRect"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 61.0
+offset_right = 177.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 29
+text = "Display"
+
+[node name="DisplayOptions" type="HBoxContainer" parent="popupMenu/Options/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 97.0
-offset_top = 49.0
-offset_right = 407.0
+offset_left = 68.0
+offset_top = 110.0
+offset_right = 434.0
+offset_bottom = -298.0
 grow_vertical = 2
+theme_override_constants/separation = 23
 
-[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/DisplayOptions"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer"]
+[node name="Resolution" type="Label" parent="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer"]
 layout_mode = 2
-text = "Master Volume"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Resolution"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/Options"]
+[node name="Window Mode" type="Label" parent="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Window Mode"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/DisplayOptions"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_constants/separation = 17
 
-[node name="Resolutions" type="OptionButton" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer2"]
+[node name="Resolutions" type="OptionButton" parent="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer2"]
 layout_mode = 2
 selected = 2
 item_count = 3
@@ -226,7 +277,7 @@ popup/item_1/id = 1
 popup/item_2/text = "1280x720"
 popup/item_2/id = 2
 
-[node name="Window" type="OptionButton" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer2"]
+[node name="Window" type="OptionButton" parent="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer2"]
 layout_mode = 2
 selected = 1
 item_count = 3
@@ -237,21 +288,131 @@ popup/item_1/id = 1
 popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 
-[node name="Master" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer2" instance=ExtResource("8_04xgm")]
+[node name="AudioOptions" type="HBoxContainer" parent="popupMenu/Options/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 262.0
+offset_right = 434.0
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/AudioOptions"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Master Volume" type="Label" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Master Volume"
+
+[node name="Music" type="Label" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Music"
+
+[node name="Sound Effects" type="Label" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Sound Effects"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="popupMenu/Options/NinePatchRect/AudioOptions"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Master" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer4" instance=ExtResource("8_04xgm")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="Music" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer2" instance=ExtResource("8_04xgm")]
+[node name="Music" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer4" instance=ExtResource("8_04xgm")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="Sfx" parent="popupMenu/Options/NinePatchRect/Options/VBoxContainer2" instance=ExtResource("8_04xgm")]
+[node name="Sfx" parent="popupMenu/Options/NinePatchRect/AudioOptions/VBoxContainer4" instance=ExtResource("8_04xgm")]
 layout_mode = 2
 bus_name = "Sfx"
+
+[node name="Resolution2" type="Label" parent="popupMenu/Options/NinePatchRect"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 213.0
+offset_right = 178.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 29
+text = "Audio"
+
+[node name="Back" type="Button" parent="popupMenu/Options/NinePatchRect"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -108.0
+offset_right = 75.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_huati")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yjjyl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve7rr")
+
+[node name="Resolution2" type="Label" parent="popupMenu/Options/NinePatchRect/Back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -34.0
+offset_right = 51.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.694118, 0.658824, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_colors/font_outline_color = Color(0.305882, 0.286275, 0.396078, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 45
+text = "Back"
 
 [connection signal="pressed" from="popupMenu/SettingsOpener/Settings" to="popupMenu" method="_on_settings_pressed"]
 [connection signal="pressed" from="popupMenu/Settings/NinePatchRect/MarginContainer/VBoxContainer/Resume" to="popupMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="popupMenu/Settings/NinePatchRect/MarginContainer/VBoxContainer/Options" to="popupMenu" method="_on_options_pressed"]
 [connection signal="pressed" from="popupMenu/Settings/NinePatchRect/MarginContainer/VBoxContainer/Quit" to="popupMenu" method="_on_quit_pressed"]
-[connection signal="item_selected" from="popupMenu/Options/NinePatchRect/Options/VBoxContainer2/Resolutions" to="popupMenu" method="_on_resolutions_item_selected"]
-[connection signal="item_selected" from="popupMenu/Options/NinePatchRect/Options/VBoxContainer2/Window" to="popupMenu" method="_on_window_item_selected"]
+[connection signal="item_selected" from="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer2/Resolutions" to="popupMenu" method="_on_resolutions_item_selected"]
+[connection signal="item_selected" from="popupMenu/Options/NinePatchRect/DisplayOptions/VBoxContainer2/Window" to="popupMenu" method="_on_window_item_selected"]
+[connection signal="pressed" from="popupMenu/Options/NinePatchRect/Back" to="popupMenu" method="_on_back_pressed"]

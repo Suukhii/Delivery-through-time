@@ -2,7 +2,7 @@ extends MarginContainer
 
 @export var menu_screen: VBoxContainer
 @export var open_menu_screen: MarginContainer
-@export var open_options_screen: MarginContainer
+@export var options_screen: MarginContainer
 
 
 func toggle_visibility(object):
@@ -16,8 +16,8 @@ func _input(event):
 	if event.is_action_pressed("pauseOrSettings"):
 		toggle_visibility(menu_screen)
 		toggle_visibility(open_menu_screen)
-		if open_options_screen.visible:
-			toggle_visibility(open_options_screen)
+		if options_screen.visible:
+			toggle_visibility(options_screen)
 
 
 func _on_settings_pressed() -> void:
@@ -31,7 +31,11 @@ func _on_resume_pressed() -> void:
 	
 	
 func _on_options_pressed() -> void:
-	toggle_visibility(open_options_screen)
+	toggle_visibility(options_screen)
+	
+
+func _on_back_pressed() -> void:
+	toggle_visibility(options_screen)
 
 
 func _on_quit_pressed() -> void:
