@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
+
+
 var fire_rate := 1.0  # shots per second (normal)
 var boosted_fire_rate := 10.0  # shots per second when boosted
 var is_fire_rate_boosted := false
@@ -80,6 +82,9 @@ func shoot_projectile_with_throw() -> void:
 	projectile.direction = Vector2(facing_direction, 0)
 	get_tree().current_scene.add_child(projectile)
 
+	$Shoot.play()
+	
+	
 	is_throwing = false
 	
 	
@@ -96,8 +101,10 @@ func _physics_process(delta: float) -> void:
 		
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		var random_pitch = randf_range(0.7, 1.3) 
 		velocity.y = JUMP_VELOCITY
-		
+		$Jump.pitch_scale = random_pitch
+		$Jump.play()
 	# Makes jump pressure sensitive
 	if Input.is_action_just_released("jump") and velocity.y < 0 and velocity.y < JUMP_VELOCITY/4:
 		velocity.y = JUMP_VELOCITY / 4
@@ -141,6 +148,8 @@ func on_hit():
 	lives -= 1
 	print("Player hit! Lives left: ", lives)
 	emit_signal("hit", lives)  
+	$Hit.play()
+	
 	if lives <= 0:
 		die() 
 		
