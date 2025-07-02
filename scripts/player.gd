@@ -6,6 +6,12 @@ extends CharacterBody2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
 
+var boosted_speed := 1000.0
+var speed_boost_duration := 3.0
+var is_speed_boosted := false
+var speed_timer: Timer
+
+
 
 signal hit
 
@@ -80,10 +86,12 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 
 	# Horizontal movement
+	var current_speed = boosted_speed if is_speed_boosted else SPEED
+
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * current_speed  # <-- Use current_speed here!
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, current_speed)  # <-- And here!
 	
 	# Stop movement during throwing
 	if is_throwing:
@@ -113,3 +121,22 @@ func die():
 	print("You died")
 	get_tree().reload_current_scene()
 	
+	
+func _ready():
+	speed_timer = Timer.new()
+	speed_timer.one_shot = true
+	speed_timer.wait_time = speed_boost_duration
+	speed_timer.connect("timeout", Callable(self, "_on_speed_boost_timeout"))
+	add_child(speed_timer)
+
+	
+func activate_speed_boost():
+	if is_speed_boosted:
+		speed_timer.stop()  # Restart the timer if another power-up is picked up
+	speed_timer.start()
+	is_speed_boosted = true
+	print("Speed boost activated!")
+	
+func _on_speed_boost_timeout():
+	is_speed_boosted = false
+	print("Speed boost ended.")
