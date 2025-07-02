@@ -28,7 +28,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_gee14")
 sources/1 = SubResource("TileSetAtlasSource_vtaks")
 
@@ -95,12 +95,15 @@ position = Vector2(-3223, -2169)
 [node name="enemy9" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(-3179, -2169)
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gee14")
-volume_db = 12.18
+volume_db = 7.495
 autoplay = true
 
 [node name="attack_speed" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(-2521, -2342)
+
+[node name="enemy10" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(279, 38)
 
 [connection signal="timeout" from="Player/VultureSpawner/SpawnTimer" to="Player/VultureSpawner" method="_on_spawn_timer_timeout"]
