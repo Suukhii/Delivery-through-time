@@ -5,15 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://blmeuqljxq7si" path="res://assets/sprites/Map/Egypt/DesertBrick.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c35aaff7rc6ou" path="res://scenes/enemy.tscn" id="5_iywne"]
+
 [ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d010oawg3n87i" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://djyv26jtdj5pk" path="res://scenes/attack_speed.tscn" id="8_gee14"]
+=======
+[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.1873, -15.8276, 16.5688, -15.9315, 16.2502, 15.9315, -15.9315, 16.2502)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_lbhrr"]
 physics_layer_0/collision_layer = 1
