@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d010oawg3n87i"]
+
+[ext_resource type="Script" path="res://scripts/speed_boots.gd" id="1_kisqy"]
+[ext_resource type="Texture2D" uid="uid://dfhtq7qtudd2e" path="res://assets/sprites/speed boots.png" id="1_mi650"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kisqy"]
+size = Vector2(11, 14)
+
+[node name="SpeedBoots" type="Area2D"]
+script = ExtResource("1_kisqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -8)
+shape = SubResource("RectangleShape2D_kisqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, -12)
+scale = Vector2(1.10938, 0.984848)
+texture = ExtResource("1_mi650")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
