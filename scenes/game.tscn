@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://g7w2o4vqk7dh"]
+[gd_scene load_steps=35 format=4 uid="uid://g7w2o4vqk7dh"]
 
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="2_lbhrr"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://vvtqsjxxmqtv" path="res://assets/sprites/Map/Egypt/clouds.png" id="12_37s47"]
 [ext_resource type="PackedScene" uid="uid://qed4fx72cdht" path="res://scenes/portal.tscn" id="13_kvuet"]
-[ext_resource type="PackedScene" uid="uid://bt14cpsbp8u86" path="res://scenes/city.tscn" id="21_37s47"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("2_yqjtg")
@@ -193,8 +192,7 @@ position = Vector2(279, 38)
 position = Vector2(-3070, -2490)
 
 [node name="Portal" parent="." instance=ExtResource("13_kvuet")]
-position = Vector2(-1542, -3947)
-target_scene = ExtResource("21_37s47")
+position = Vector2(-238, 13)
 
 [node name="torch5" type="Sprite2D" parent="."]
 position = Vector2(726, -362)
