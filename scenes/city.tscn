@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=4 uid="uid://bt14cpsbp8u86"]
+[gd_scene load_steps=15 format=3 uid="uid://bt14cpsbp8u86"]
 
-[ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="1_bih7l"]
 [ext_resource type="Script" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="2_drx7m"]
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="2_movw8"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vnto367fmwcb" path="res://assets/sprites/Map/City/side_building_otherside.png" id="5_4lp1f"]
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="5_oacpt"]
 [ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
+[ext_resource type="Texture2D" uid="uid://b7iyjcnk7rvpg" path="res://assets/sprites/Map/City/brick.png" id="7_4lp1f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_drx7m"]
 distance = -1054.0
@@ -25,8 +25,8 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58ubr"]
-texture = ExtResource("1_bih7l")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obbxu"]
+texture = ExtResource("7_4lp1f")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -34,9 +34,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_rqxma"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 3
-sources/2 = SubResource("TileSetAtlasSource_58ubr")
 sources/0 = SubResource("TileSetAtlasSource_07bxp")
 sources/1 = SubResource("TileSetAtlasSource_q8eg3")
+sources/3 = SubResource("TileSetAtlasSource_obbxu")
 
 [node name="City" type="Node2D"]
 position = Vector2(0, 19)
@@ -51,7 +51,6 @@ shape = SubResource("WorldBoundaryShape2D_drx7m")
 [node name="UI" parent="." instance=ExtResource("4_movw8")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAOABMAAgAAAAAAAAAPABQAAgAAAAAAAAAQABQAAgAAAAAAAAARABQAAgAAAAAAAAASABQAAgAAAAAAAAATABQAAgAAAAAAAAAUABQAAgAAAAAAAAAVABQAAgAAAAAAAAAWABQAAgAAAAAAAAAXABQAAgAAAAAAAAAYABQAAgAAAAAAAAAZABQAAgAAAAAAAAAaABQAAgAAAAAAAAAaABUAAgAAAAAAAAAXABIAAgAAAAAAAAAXABMAAgAAAAAAAAAWABMAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_rqxma")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
