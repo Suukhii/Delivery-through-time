@@ -160,3 +160,5 @@ bus = &"Sfx"
 stream = ExtResource("10_y4r1p")
 volume_db = 10.306
 bus = &"Sfx"
+
+[node name="Camera2D" type="Camera2D" parent="."]
