@@ -8,19 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://bpowa2wrij2al" path="res://assets/sprites/Map/Egypt/DesertBrickDark.png" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c35aaff7rc6ou" path="res://scenes/enemy.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://b5binaqrma8bm" path="res://assets/sprites/Map/Egypt/egyptblock1.png" id="5_rysoc"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://cb803wfyqkh2p" path="res://assets/sprites/Map/Egypt/egyptblock2.png" id="6_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://b8a36owtnyell" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked rotated.png" id="7_264po"]
-[ext_resource type="PackedScene" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://d010oawg3n87i" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cjda5sbb3bfkp" path="res://assets/sprites/Map/Egypt/torch.png" id="8_1kice"]
 [ext_resource type="AudioStream" uid="uid://bu8griog4pfy2" path="res://assets/music/desert jingle.mp3" id="8_gee14"]
-[ext_resource type="PackedScene" path="res://scenes/attack_speed.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://djyv26jtdj5pk" path="res://scenes/attack_speed.tscn" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bnmjgxmaru7pk" path="res://assets/sprites/Map/Egypt/sand.png" id="9_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://beee1sxlnkcnk" path="res://assets/sprites/Map/Egypt/ground.png" id="10_264po"]
 [ext_resource type="Texture2D" uid="uid://b4w7ynjj8duv" path="res://assets/sprites/Map/Egypt/sky.png" id="11_5newe"]
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://vvtqsjxxmqtv" path="res://assets/sprites/Map/Egypt/clouds.png" id="12_37s47"]
-[ext_resource type="PackedScene" path="res://scenes/portal.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://qed4fx72cdht" path="res://scenes/portal.tscn" id="13_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("2_yqjtg")
@@ -102,6 +102,13 @@ sources/5 = SubResource("TileSetAtlasSource_pl11u")
 distance = -81.0
 
 [node name="Game" type="Node2D"]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -270.0
+offset_top = -1510.0
+offset_right = -88.0
+offset_bottom = -1478.0
+text = "the birds may help you to procced futher"
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(0, 40)
@@ -306,5 +313,15 @@ texture = ExtResource("8_1kice")
 [node name="torch7" type="Sprite2D" parent="torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch5/torch6/torch6/torch6/torch5/torch4/torch3/torch6/torch/torch2/torch7"]
 position = Vector2(-2060, -2024)
 texture = ExtResource("8_1kice")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -109.0
+offset_top = -297.0
+offset_right = 126.0
+offset_bottom = -174.0
+text = "space to jump
+K or left mouse button to shoot
+w,a,s,d to move
+can use controller "
 
 [connection signal="timeout" from="Player/VultureSpawner/SpawnTimer" to="Player/VultureSpawner" method="_on_spawn_timer_timeout"]
