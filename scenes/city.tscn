@@ -1,6 +1,3 @@
-
-[gd_scene load_steps=20 format=4 uid="uid://bt14cpsbp8u86"]
-
 [gd_scene load_steps=21 format=4 uid="uid://bt14cpsbp8u86"]
 
 [ext_resource type="Script" path="res://scripts/city.gd" id="1_rqxma"]
@@ -14,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
 [ext_resource type="Texture2D" uid="uid://b7iyjcnk7rvpg" path="res://assets/sprites/Map/City/brick.png" id="7_4lp1f"]
 [ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="9_07bxp"]
-
-[ext_resource type="PackedScene" uid="uid://bqqb1hy554uby" path="res://scenes/portal2.tscn" id="12_q8eg3"]
-
 [ext_resource type="PackedScene" path="res://scenes/attack_speed.tscn" id="12_q8eg3"]
 [ext_resource type="PackedScene" path="res://scenes/speed_boots.tscn" id="13_obbxu"]
 
@@ -99,9 +93,6 @@ size_flags_vertical = 8
 [node name="enemy" parent="." instance=ExtResource("6_2jj31")]
 z_index = 0
 position = Vector2(-33, 673)
-
-[node name="Portal" parent="." instance=ExtResource("12_q8eg3")]
-position = Vector2(1048, 664)
 
 [node name="enemy2" parent="." instance=ExtResource("6_2jj31")]
 position = Vector2(408, -511)
