@@ -156,4 +156,6 @@ offset_right = 1991.0
 offset_bottom = -15.0
 text = "Thanks for playing if you go through the portal the game will end "
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="PlayerSpawn/Player/VultureSpawner/SpawnTimer" to="PlayerSpawn/Player/VultureSpawner" method="_on_spawn_timer_timeout"]
