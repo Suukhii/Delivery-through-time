@@ -22,7 +22,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jr6l0"]
 radius = 3.0
 
-[node name="Portal" type="Area2D"]
+[node name="Portal2" type="Area2D"]
 script = ExtResource("1_0b6xu")
 target_scene = ExtResource("2_0b6xu")
 
