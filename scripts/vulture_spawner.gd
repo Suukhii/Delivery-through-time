@@ -11,7 +11,10 @@ var player_node
 # start timer on start
 func _ready():
 	randomize()
-	player_node = get_tree().get_root().get_node("Game/Player/Camera2D")
+	if get_tree().get_current_scene().name == "Game":
+		player_node = get_tree().get_root().get_node("Game/Player/Camera2D")
+	elif get_tree().get_current_scene().name == "City":
+		player_node = get_tree().get_root().get_node("City/PlayerSpawn/Player")
 	spawnTimer.start(nextSpawnTime)
 
 

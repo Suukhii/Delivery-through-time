@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bt14cpsbp8u86"]
+[gd_scene load_steps=19 format=4 uid="uid://bt14cpsbp8u86"]
 
 [ext_resource type="Script" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="2_drx7m"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="5_oacpt"]
 [ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
 [ext_resource type="Texture2D" uid="uid://b7iyjcnk7rvpg" path="res://assets/sprites/Map/City/brick.png" id="7_4lp1f"]
+[ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="9_07bxp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_drx7m"]
 distance = -1054.0
@@ -74,6 +75,13 @@ position = Vector2(589, 668.54)
 [node name="Player" parent="PlayerSpawn" instance=ExtResource("2_movw8")]
 position = Vector2(1, -1)
 
+[node name="VultureSpawner" type="Node2D" parent="PlayerSpawn/Player"]
+position = Vector2(659.31, -5)
+script = ExtResource("9_07bxp")
+
+[node name="SpawnTimer" type="Timer" parent="PlayerSpawn/Player/VultureSpawner"]
+one_shot = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inGameUI" parent="CanvasLayer" instance=ExtResource("5_oacpt")]
@@ -82,3 +90,5 @@ size_flags_vertical = 8
 
 [node name="enemy" parent="." instance=ExtResource("6_2jj31")]
 position = Vector2(-33, 673)
+
+[connection signal="timeout" from="PlayerSpawn/Player/VultureSpawner/SpawnTimer" to="PlayerSpawn/Player/VultureSpawner" method="_on_spawn_timer_timeout"]

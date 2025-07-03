@@ -8,6 +8,15 @@ var health = 50
 func _ready() -> void:
 	randomize()
 	SPEED += randf_range(0, SPEED/4)
+	var sprite = $Sprite2D  # or get_node("Sprite2D")
+	if get_tree().get_current_scene().name == "Game":
+		var new_texture = preload("res://assets/sprites/Map/Egypt/Vulture.png")
+		sprite.texture = new_texture
+	elif get_tree().get_current_scene().name == "City":
+		var new_texture = preload("res://assets/sprites/Map/City/pidgeon.png")
+		sprite.texture = new_texture
+	
+	
 
 func _physics_process(delta: float) -> void:
 	velocity.x = -SPEED
