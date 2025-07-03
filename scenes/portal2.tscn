@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqqb1hy554uby"]
+[gd_scene load_steps=6 format=3 uid="uid://bqqb1hy554uby"]
 
 [ext_resource type="Script" uid="uid://3hyqgcy633v6" path="res://scripts/portal.gd" id="1_0b6xu"]
-[ext_resource type="PackedScene" uid="uid://ovtv6xxa7avw" path="res://scenes/space.tscn" id="2_0b6xu"]
 [ext_resource type="Texture2D" uid="uid://dnory7y37uhps" path="res://assets/sprites/test enemy.png" id="3_lb7nk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ffj6"]
@@ -24,7 +23,6 @@ radius = 3.0
 
 [node name="Portal" type="Area2D"]
 script = ExtResource("1_0b6xu")
-target_scene = ExtResource("2_0b6xu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -2)

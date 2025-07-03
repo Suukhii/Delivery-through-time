@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bt14cpsbp8u86"]
+[gd_scene load_steps=32 format=4 uid="uid://bt14cpsbp8u86"]
 
 [ext_resource type="Script" uid="uid://rieeqbvr1icv" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="2_drx7m"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d010oawg3n87i" path="res://scenes/speed_boots.tscn" id="13_obbxu"]
 [ext_resource type="PackedScene" uid="uid://bqqb1hy554uby" path="res://scenes/portal2.tscn" id="14_hlin5"]
 [ext_resource type="AudioStream" uid="uid://cpjr1m3rnksj4" path="res://assets/music/In The Big City.mp3" id="15_hyhbb"]
+[ext_resource type="PackedScene" uid="uid://ovtv6xxa7avw" path="res://scenes/space.tscn" id="19_ibljb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_drx7m"]
 distance = -1054.0
@@ -180,6 +181,7 @@ position = Vector2(3320, -3086)
 
 [node name="Portal" parent="." instance=ExtResource("14_hlin5")]
 position = Vector2(1157, 660)
+target_scene = ExtResource("19_ibljb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_hyhbb")
