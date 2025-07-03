@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bt14cpsbp8u86"]
+[gd_scene load_steps=9 format=4 uid="uid://bt14cpsbp8u86"]
 
 [ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="1_bih7l"]
 [ext_resource type="Script" uid="uid://rieeqbvr1icv" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="2_movw8"]
 [ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="4_movw8"]
+[ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="5_oacpt"]
+[ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58ubr"]
 texture = ExtResource("1_bih7l")
@@ -17,6 +19,7 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_58ubr")
 
 [node name="City" type="Node2D"]
+position = Vector2(0, 19)
 script = ExtResource("1_rqxma")
 player_scene = ExtResource("2_movw8")
 
@@ -28,3 +31,23 @@ tile_set = SubResource("TileSet_rqxma")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(584, 600)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inGameUI" parent="CanvasLayer" instance=ExtResource("5_oacpt")]
+anchors_preset = -1
+anchor_left = 0.968
+anchor_top = 0.057
+anchor_right = 0.968
+anchor_bottom = 0.057
+offset_left = -44.04
+offset_top = 10.96
+offset_right = 20.96
+offset_bottom = 10.96
+grow_horizontal = 0
+grow_vertical = 1
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="enemy" parent="." instance=ExtResource("6_2jj31")]
+position = Vector2(557, 643)

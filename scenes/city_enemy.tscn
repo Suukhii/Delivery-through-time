@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://rftcwd783beq"]
+
+[ext_resource type="Script" uid="uid://cphre82dxpelq" path="res://scripts/enemy.gd" id="1_byeu0"]
+[ext_resource type="Texture2D" uid="uid://caqcnyp52mo22" path="res://assets/sprites/bossman.png" id="2_byeu0"]
+[ext_resource type="AudioStream" uid="uid://7kefcbtmf3oy" path="res://assets/sounds/hitEnemy.wav" id="5_jwl3v"]
+[ext_resource type="AudioStream" uid="uid://con4d78xrqbv8" path="res://assets/sounds/Enemydie.wav" id="6_lsiby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(34, 48.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as20u"]
+atlas = ExtResource("2_byeu0")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15l3p"]
+atlas = ExtResource("2_byeu0")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i6gy"]
+atlas = ExtResource("2_byeu0")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4w8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as20u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15l3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i6gy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
+size = Vector2(23.25, 47.625)
+
+[node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_byeu0")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(22, -26.875)
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(26, -28)
+target_position = Vector2(13, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(23, -16)
+target_position = Vector2(-15, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, -25)
+scale = Vector2(1.72808, 1.83606)
+sprite_frames = SubResource("SpriteFrames_c4w8v")
+animation = &"hit"
+autoplay = "default"
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(21, -26.1875)
+shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="HitEnemy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jwl3v")
+
+[node name="Enemydie" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_lsiby")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
