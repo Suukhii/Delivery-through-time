@@ -192,7 +192,7 @@ position = Vector2(279, 38)
 position = Vector2(-3070, -2490)
 
 [node name="Portal" parent="." instance=ExtResource("13_kvuet")]
-position = Vector2(-1560, -3962)
+position = Vector2(-248, 7)
 
 [node name="torch5" type="Sprite2D" parent="."]
 position = Vector2(726, -362)

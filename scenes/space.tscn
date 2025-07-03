@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://doboy77rkl1kc" path="res://scenes/portalend.tscn" id="11_rlquo"]
 [ext_resource type="Script" uid="uid://jcfsxbt4gv04" path="res://scripts/portalend.gd" id="12_7a7lp"]
 [ext_resource type="PackedScene" uid="uid://djyv26jtdj5pk" path="res://scenes/attack_speed.tscn" id="12_rlquo"]
-[ext_resource type="AudioStream" uid="uid://cpjr1m3rnksj4" path="res://assets/music/In The Big City.mp3" id="15_skhc4"]
+[ext_resource type="AudioStream" uid="uid://d0cqtc4y0bks3" path="res://assets/music/spacesong.mp3" id="15_skhc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85sbg"]
 texture = ExtResource("9_dv837")
@@ -159,5 +159,7 @@ text = "Thanks for playing if you go through the portal the game will end "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_skhc4")
+volume_db = 0.005
+autoplay = true
 
 [connection signal="timeout" from="PlayerSpawn/Player/VultureSpawner/SpawnTimer" to="PlayerSpawn/Player/VultureSpawner" method="_on_spawn_timer_timeout"]
