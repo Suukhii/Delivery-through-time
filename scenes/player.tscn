@@ -128,9 +128,8 @@ projectile_scene = ExtResource("2_tuyoq")
 position = Vector2(-1, -13)
 scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"hit"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -24.1)
@@ -138,10 +137,10 @@ scale = Vector2(1, 1.58)
 shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="PlayerProjectileSpawnRight" type="Marker2D" parent="."]
-position = Vector2(20, -18)
+position = Vector2(20, -21)
 
 [node name="PlayerProjectileSpawnLeft" type="Marker2D" parent="."]
-position = Vector2(-25, -18)
+position = Vector2(-25, -21)
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_fjrip")

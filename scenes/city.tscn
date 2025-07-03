@@ -21,7 +21,6 @@ sources/2 = SubResource("TileSetAtlasSource_58ubr")
 [node name="City" type="Node2D"]
 position = Vector2(0, 19)
 script = ExtResource("1_rqxma")
-player_scene = ExtResource("2_movw8")
 
 [node name="UI" parent="." instance=ExtResource("4_movw8")]
 
@@ -30,7 +29,10 @@ tile_map_data = PackedByteArray("AAAOABMAAgAAAAAAAAAPABQAAgAAAAAAAAAQABQAAgAAAAA
 tile_set = SubResource("TileSet_rqxma")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(584, 600)
+position = Vector2(585, 615)
+
+[node name="Player" parent="PlayerSpawn" instance=ExtResource("2_movw8")]
+position = Vector2(-38, 22)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,4 +52,4 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 
 [node name="enemy" parent="." instance=ExtResource("6_2jj31")]
-position = Vector2(557, 643)
+position = Vector2(629, 643)
