@@ -1,15 +1,20 @@
-[gd_scene load_steps=23 format=3 uid="uid://c04qsrihrd6u4"]
+[gd_scene load_steps=25 format=3 uid="uid://c04qsrihrd6u4"]
 
 [ext_resource type="Texture2D" uid="uid://yy4fcsm6tphn" path="res://assets/sprites/postman_idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://6h157fp1fgbu" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dk156eheyxctq" path="res://assets/sprites/postman_jump.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://butky34ygogaj" path="res://scenes/player_projectile.tscn" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://ciq8mtu7h8l40" path="res://assets/sprites/postman_hit.png" id="3_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://ramqmdumdn62" path="res://assets/sprites/postman_walk.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://chdcbifdpd03c" path="res://assets/sprites/postman_throw.png" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://drsksjtp535mf" path="res://assets/sounds/Jump.wav" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://dddsit1pivoym" path="res://assets/sounds/Hit.wav" id="8_smehm"]
 [ext_resource type="AudioStream" uid="uid://cy8u4sdb8ac7w" path="res://assets/sounds/Shoot.wav" id="9_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://rjawc8g4agos" path="res://assets/sounds/death.wav" id="10_y4r1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(0, 0, 16, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -53,6 +58,14 @@ region = Rect2(50, 0, 25, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
@@ -115,9 +128,8 @@ projectile_scene = ExtResource("2_tuyoq")
 position = Vector2(-1, -13)
 scale = Vector2(2.91768, 2.37905)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"throw"
+animation = &"hit"
 autoplay = "idle"
-frame = 2
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
