@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var projectile_spawn_right = $PlayerProjectileSpawnRight
 @onready var projectile_spawn_left = $PlayerProjectileSpawnLeft
-
+@export var open_menu_screen: Control
 
 
 var fire_rate := 1.0  # shots per second (normal)
@@ -135,6 +135,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	# Animation logic
+	if is_hit:
+		return  # Don't change animation during hit
+
 	if not is_on_floor():
 		animated_sprite.play("jump")
 	elif direction:
@@ -143,15 +146,24 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("idle")
 		
 var lives := 3
+var is_hit = false
 
 func on_hit():
 	lives -= 1
 	print("Player hit! Lives left: ", lives)
-	emit_signal("hit", lives)  
+	emit_signal("hit", lives)
+	
+	is_hit = true
+	animated_sprite.play("hit")
 	$Hit.play()
+
+	# Wait for hit animation (~0.3 seconds), then clear flag
+	await get_tree().create_timer(0.3).timeout
+	is_hit = false
 	
 	if lives <= 0:
-		die() 
+		die()
+
 		
 func die():
 	print("You died")
