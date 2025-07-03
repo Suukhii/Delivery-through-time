@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://bt14cpsbp8u86"]
 
 [ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="1_bih7l"]
-[ext_resource type="Script" uid="uid://rieeqbvr1icv" path="res://scripts/city.gd" id="1_rqxma"]
+[ext_resource type="Script" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="2_movw8"]
-[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="4_movw8"]
+[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="4_movw8"]
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="5_oacpt"]
 [ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
 
