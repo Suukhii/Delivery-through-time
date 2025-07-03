@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://con4d78xrqbv8" path="res://assets/sounds/Enemydie.wav" id="6_lsiby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(34, 48.25)
+size = Vector2(27, 51.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_as20u"]
 atlas = ExtResource("2_byeu0")
@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(23.25, 47.625)
+size = Vector2(23.4063, 51.9063)
 
 [node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
@@ -58,7 +58,7 @@ script = ExtResource("1_byeu0")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(22, -26.875)
+position = Vector2(22.5, -28.375)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -70,14 +70,15 @@ position = Vector2(23, -16)
 target_position = Vector2(-15, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(23, -25)
-scale = Vector2(1.72808, 1.83606)
+position = Vector2(20.8158, -29.8115)
+scale = Vector2(1.93202, 1.76178)
 sprite_frames = SubResource("SpriteFrames_c4w8v")
-animation = &"hit"
 autoplay = "default"
+frame = 2
+frame_progress = 0.576987
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(21, -26.1875)
+position = Vector2(23.2969, -28.0469)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="HitEnemy" type="AudioStreamPlayer2D" parent="."]
