@@ -81,5 +81,4 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 
 [node name="enemy" parent="." instance=ExtResource("6_2jj31")]
-visible = false
 position = Vector2(-33, 673)
