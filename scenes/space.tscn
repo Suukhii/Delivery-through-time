@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://ovtv6xxa7avw"]
+[gd_scene load_steps=13 format=4 uid="uid://ovtv6xxa7avw"]
 
-[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="1_c6rj5"]
+[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="1_c6rj5"]
 [ext_resource type="PackedScene" uid="uid://xig64r8eh6m0" path="res://scenes/space_enemy.tscn" id="1_ocmas"]
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="2_dtwn4"]
 [ext_resource type="Texture2D" uid="uid://difbxdthn6uk1" path="res://assets/sprites/Map/space/spaceship wall.png" id="3_1gvwg"]
+[ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="3_gk1qj"]
 [ext_resource type="Texture2D" uid="uid://v34gjskpdlmj" path="res://assets/sprites/Map/space/black.png" id="4_n0118"]
 [ext_resource type="Texture2D" uid="uid://btose8hmpokxq" path="res://assets/sprites/Map/space/space.png" id="5_ocmas"]
 [ext_resource type="Script" uid="uid://dpm6856gi46ju" path="res://scripts/vulture_spawner.gd" id="6_n0118"]
@@ -46,6 +47,11 @@ position = Vector2(-8216, 256)
 
 [node name="Player" parent="PlayerSpawn" instance=ExtResource("2_dtwn4")]
 position = Vector2(1, 1)
+
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="inGameUI" parent="Settings" instance=ExtResource("3_gk1qj")]
+z_index = 100
 
 [node name="UI" parent="." instance=ExtResource("1_c6rj5")]
 
