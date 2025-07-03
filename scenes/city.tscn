@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=4 uid="uid://bt14cpsbp8u86"]
 
-[ext_resource type="Script" path="res://scripts/city.gd" id="1_rqxma"]
+[ext_resource type="Script" uid="uid://rieeqbvr1icv" path="res://scripts/city.gd" id="1_rqxma"]
 [ext_resource type="PackedScene" uid="uid://bbbn8e6ptd4x8" path="res://scenes/deadzone.tscn" id="2_drx7m"]
 [ext_resource type="PackedScene" uid="uid://c04qsrihrd6u4" path="res://scenes/player.tscn" id="2_movw8"]
 [ext_resource type="Texture2D" uid="uid://c3mom2ksvymxk" path="res://assets/sprites/Map/City/side_building.png" id="4_3br4m"]
 [ext_resource type="Texture2D" uid="uid://dakiffvk2prnj" path="res://assets/sprites/Map/City/background.png" id="4_4lp1f"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="4_movw8"]
+[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="4_movw8"]
 [ext_resource type="Texture2D" uid="uid://vnto367fmwcb" path="res://assets/sprites/Map/City/side_building_otherside.png" id="5_4lp1f"]
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="5_oacpt"]
 [ext_resource type="PackedScene" uid="uid://rftcwd783beq" path="res://scenes/city_enemy.tscn" id="6_2jj31"]
@@ -81,4 +81,5 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 
 [node name="enemy" parent="." instance=ExtResource("6_2jj31")]
+z_index = 0
 position = Vector2(-33, 673)
