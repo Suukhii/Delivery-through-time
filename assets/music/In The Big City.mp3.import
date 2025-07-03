@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/In The Big City.mp3-fadfdfd9acd7bb2bde5643318
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
