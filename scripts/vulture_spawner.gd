@@ -15,7 +15,11 @@ func _ready():
 		player_node = get_tree().get_root().get_node("Game/Player/Camera2D")
 	elif get_tree().get_current_scene().name == "City":
 		player_node = get_tree().get_root().get_node("City/PlayerSpawn/Player")
+	elif get_tree().get_current_scene().name == "Space":
+		player_node = get_tree().get_root().get_node("Space/PlayerSpawn/Player")	
+		
 	spawnTimer.start(nextSpawnTime)
+	
 
 
 func _on_spawn_timer_timeout():

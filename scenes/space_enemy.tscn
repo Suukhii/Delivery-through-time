@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://xig64r8eh6m0"]
+
+[ext_resource type="Script" uid="uid://cphre82dxpelq" path="res://scripts/enemy.gd" id="1_dhdu7"]
+[ext_resource type="Texture2D" uid="uid://crv7iw61n0p15" path="res://assets/sprites/Map/space/enemy space.png" id="2_hoejo"]
+[ext_resource type="AudioStream" uid="uid://7kefcbtmf3oy" path="res://assets/sounds/hitEnemy.wav" id="5_0spmy"]
+[ext_resource type="AudioStream" uid="uid://con4d78xrqbv8" path="res://assets/sounds/Enemydie.wav" id="6_vllb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(49, 48.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6t0m"]
+atlas = ExtResource("2_hoejo")
+region = Rect2(0, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhdu7"]
+atlas = ExtResource("2_hoejo")
+region = Rect2(40, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kngxe"]
+atlas = ExtResource("2_hoejo")
+region = Rect2(80, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsk84"]
+atlas = ExtResource("2_hoejo")
+region = Rect2(120, 0, 40, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4w8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6t0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhdu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kngxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsk84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
+size = Vector2(49, 47.625)
+
+[node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dhdu7")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(17.5, 9)
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(30, 9)
+target_position = Vector2(13, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(6, 9)
+target_position = Vector2(-15, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, -25)
+scale = Vector2(1.72808, 1.83606)
+sprite_frames = SubResource("SpriteFrames_c4w8v")
+autoplay = "default"
+frame_progress = 0.375159
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(17.5, 8)
+shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="HitEnemy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0spmy")
+
+[node name="Enemydie" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vllb0")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

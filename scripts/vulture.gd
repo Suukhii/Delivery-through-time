@@ -15,7 +15,9 @@ func _ready() -> void:
 	elif get_tree().get_current_scene().name == "City":
 		var new_texture = preload("res://assets/sprites/Map/City/pidgeon.png")
 		sprite.texture = new_texture
-	
+	elif get_tree().get_current_scene().name == "Space":
+		var new_texture = preload("res://assets/sprites/Map/space/evil_cenivel_birb.png")
+		sprite.texture = new_texture
 	
 
 func _physics_process(delta: float) -> void:
