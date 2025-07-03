@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal hit
 @export var projectile_scene: PackedScene
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -23,9 +23,6 @@ var fire_rate_boost_duration := 10.0
 var is_speed_boosted := false
 var speed_timer: Timer
 
-
-
-signal hit
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
