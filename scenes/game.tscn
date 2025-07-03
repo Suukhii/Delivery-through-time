@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bpowa2wrij2al" path="res://assets/sprites/Map/Egypt/DesertBrickDark.png" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c35aaff7rc6ou" path="res://scenes/enemy.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c8fe8i6atq3rb" path="res://scenes/ui.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://d010oawg3n87i" path="res://scenes/speed_boots.tscn" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://bu8griog4pfy2" path="res://assets/music/desert jingle.mp3" id="8_gee14"]
-[ext_resource type="PackedScene" path="res://scenes/attack_speed.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://djyv26jtdj5pk" path="res://scenes/attack_speed.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://4y3pqabsua18" path="res://scenes/in_game_ui.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
