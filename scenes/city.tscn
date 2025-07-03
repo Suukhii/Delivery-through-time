@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=4 uid="uid://bt14cpsbp8u86"]
+
+[ext_resource type="Texture2D" uid="uid://cvn77a4kkmnos" path="res://assets/sprites/Map/Egypt/DesertBrick_cracked.png" id="1_bih7l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58ubr"]
+texture = ExtResource("1_bih7l")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_rqxma"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_58ubr")
+
+[node name="City" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAgAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_rqxma")
+
+[node name="playerspawn" type="Marker2D" parent="."]
+position = Vector2(0, -18)
